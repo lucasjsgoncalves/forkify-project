@@ -11,10 +11,6 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import { async } from 'regenerator-runtime';
 
-// if (module.hot) {
-//   module.hot.accept();
-// }
-
 const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
@@ -73,7 +69,7 @@ const controlServings = function (newServings) {
   // Update the recipe servings (in state)
   model.updateServings(newServings);
   // Update the recipe view
-  // recipeView.render(model.state.recipe);
+
   recipeView.update(model.state.recipe);
 };
 
@@ -124,10 +120,6 @@ const controlAddRecipe = async function (newRecipe) {
   }
 };
 
-const newFeature = function () {
-  console.log('welcome to the application');
-};
-
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
 
@@ -140,7 +132,5 @@ const init = function () {
   paginationView.addHandlerClick(controlPagination);
 
   addRecipeView._addHandlerUpload(controlAddRecipe);
-
-  newFeature();
 };
 init();
